@@ -1,0 +1,247 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  My documentation report
+%  Objetive: Explain what I did and how, so someone can continue with the investigation
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margins
+
+\usepackage{xcolor,lipsum} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{51,102,0} 
+\definecolor{lightgray}{RGB}{229,229,229} 
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{listings}
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+%%
+%%%%%%%%%%%%%%%% Python stuff
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\small\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%%
+% MATHS PACKAGE
+\usepackage{amsmath,tikz}
+\usetikzlibrary{matrix}
+\newcommand*{\horzbar}{\rule[0.05ex]{2.5ex}{0.5pt}}
+\usepackage{calc}
+
+% VERBATIM PACKAGE
+\usepackage{verbatim}
+
+% Bibliography
+\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+\let\cleardoublepage\clearpage
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1.25]{v}}} % Image background
+\centering
+\vspace*{5cm}
+\par\normalfont\fontsize{35}{35}\sffamily\selectfont
+\textbf{MODELE LINEAIRE A EFFETS MIXTES\\ THEORIE \& APPLICATION }\\
+{\LARGE }\par % Book title
+\vspace*{1cm}
+{\Huge Amin EL GAREH et Bezeid CHEICK-MOHAMED-LMAMI}\par % Author name
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+%\noindent Copyright \copyright\ 2014 Andrea Hidalgo\\ % Copyright notice
+
+\noindent \textsc{Projet Janvier-Mars 2015, Université de Bourgogne}\\
+
+\noindent Ce projet a été encadré par Hervé CARDOT.\\ % License information
+
+\noindent \textit{Publié le 30 Mars 2015} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{pano-5.jpg} % heading image
+
+\pagestyle{empty} % No headers
+
+\renewcommand\contentsname{Table des Matières}
+\renewcommand{\bibname}{Bibliographie}
+\tableofcontents% Print the table of contents itself
+
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{pano-5.jpg} % Chapter heading image
+
+% ----------------------------------------------------------------------------------------
+% 	BIBLIOGRAPHY
+% ----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION SECTION
+%----------------------------------------------------------------------------------------
+
+\chapter*{Introduction} % Introduction chapter suppressed from the table of contents
+
+\begin{quote}
+This is one of my finer quotations.\\
+--John Smith
+\end{quote}
+
+This is a great place to write an introduction or prologue\footnote{You can even use a footnote to seem smarter}.
+
+%----------------------------------------------------------------------------------------
+%	BOOK PART
+%----------------------------------------------------------------------------------------
+
+\part{Python recipies}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER ONE
+%----------------------------------------------------------------------------------------
+
+\chapter{Linear Regression}
+Packages required to run this code
+\begin{description}
+  \item[pandas] for reading csv files\footnote{data not shown as tables} format
+  \item[scipy] for doing linear regression analysis and obtaining the statistics
+  \item[matplotlib] for making the plots
+\end{description}
+\pagebreak
+\begin{figure}
+\includegraphics[scale=0.55]{../python_recipies/GBSA_comp.pdf}
+\caption{Linear regression analysis has been performed for two sets of data and the resulting model is shown in the legends of each figure}
+\end{figure}
+\lstinputlisting[language=Python]{../python_recipies/Lin_reg_ghyd.py}
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER TWO
+%----------------------------------------------------------------------------------------
+
+\chapter{Heat Maps}
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER THREE
+%----------------------------------------------------------------------------------------
+
+\chapter{Barplots}
+Packages required to run this code
+\begin{description}
+  \item[pandas] for reading ``Hvap.csv\footnote{contains both the raw and devation data required for plot}" format
+  \item[numpy] for creating and manipulating vectors
+  \item[matplotlib] for making the plots
+\end{description}
+\begin{table}
+\caption{Data to be plotted using bar plots}
+\begin{tabular}{lcccc}
+\toprule
+             Molecules &  OPLS &  CM1A &  CM5 &  Expt \\
+\midrule
+          Acetic acid &      12.26 &      13.52 &     14.46 &      12.49 \\
+              Acetone &       7.23 &       7.74 &      8.92 &       7.48 \\
+         Acetonitrile &       7.57 &       7.63 &      9.76 &       8.01 \\
+              Aniline &      11.88 &      16.41 &     14.61 &      12.60 \\
+         Benzonitrile &      12.52 &      14.45 &     15.49 &      12.54 \\
+          Cyclohexane &       7.56 &       7.64 &      7.61 &       7.86 \\
+         Diethylamine &       7.68 &       7.54 &      7.46 &       7.48 \\
+        Diethyl ether &       6.90 &       7.01 &      7.22 &       6.56 \\
+N,N-dimethylacetamide &      13.44 &      14.34 &     15.57 &      11.75 \\
+          Ethanethiol &       6.67 &       6.48 &      6.68 &       6.58 \\
+              Ethanol &      10.29 &       9.06 &     10.19 &      10.11 \\
+                Furan &       6.91 &       8.01 &      7.17 &       6.56 \\
+               Hexane &       7.54 &       7.48 &      7.34 &       7.54 \\
+             Methanol &       9.00 &       7.60 &      8.84 &       8.95 \\
+       Methyl acetate &       7.99 &      10.00 &     10.12 &       7.72 \\
+          Nitroethane &       9.78 &      14.16 &     11.72 &       9.94 \\
+    N-methylacetamide &      13.87 &      16.12 &     19.06 &      13.30 \\
+               Phenol &      14.58 &      14.63 &     14.30 &      13.82 \\
+          Propylamine &       7.90 &       8.93 &      7.23 &       7.47 \\
+             Pyridine &       9.76 &      11.16 &     11.16 &       9.61 \\
+              Pyrrole &      10.32 &      13.81 &     12.37 &      10.80 \\
+      Tetrahydrofuran &       7.52 &       7.66 &      8.08 &       7.61 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\pagebreak 
+\lstinputlisting[language=Python,caption={Bar plot of the data shown in Table above}]{../python_recipies/bar_plot_hvap.py}
+\begin{figure}
+\includegraphics[scale=0.80]{../python_recipies/Tesh_hvap.pdf}
+\caption{Data in table above is plotted where instead of raw data, deviations from experiments for each method is plotted}
+\end{figure}
+\pagebreak 
+\lstinputlisting[language=Python,caption={Barplot liquid properties using CM5 charges with different scale factors}]{../python_recipies/BARS_all.py}
+\begin{figure}
+\includegraphics[scale=0.80]{../python_recipies/Thh.pdf}
+\caption{Data in table above is plotted where instead of raw data, deviations from experiments for each method is plotted}
+\end{figure}
+\pagebreak 
+\lstinputlisting[language=Python,caption={Multiple bar plots in matplotlib}]{../python_recipies/Multi_Bar.py}
+\begin{figure}
+\includegraphics[scale=0.80]{../python_recipies/Multi_Bar.pdf}
+\caption{Data in table above is plotted where instead of raw data, deviations from experiments for each method is plotted}
+\end{figure}
+\part{R recipies}
+
+\end{document}
